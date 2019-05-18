@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{titulo}}</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   
+<ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input (input)="modificaciondecampo()" [(ngModel)]="nuevoContacto.nombres"  type="text" required ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating">Apellido</ion-label>
+        <ion-input (input)="modificaciondecampo()" [(ngModel)]="nuevoContacto.apellidos" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Telefono</ion-label>
+        <ion-input (input)="modificaciondecampo()" [(ngModel)]="nuevoContacto.telefono"  type="tel" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating">Description</ion-label>
+        <ion-textarea  (input)="modificaciondecampo()" [(ngModel)]="nuevoContacto.descripcion" rows="6"></ion-textarea>
+      </ion-item>
+      <br>
+      <ion-button *ngIf="id==0" type="submit" expand="block" (click)="mostrarNuevoContacto()" fill="outline">Guardar contacto</ion-button>
+    
+    
+      
+</ion-content>

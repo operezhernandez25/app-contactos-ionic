@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Lista de contactos
+    </ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="presentModal(titulos[0])">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-list>
+    <ion-item-sliding *ngFor="let contacto of filterBy('nombres')">
+      <ion-item button (click)="presentModal(titulos[1],contacto.id)" detail>
+        <ion-label>{{contacto.nombres}} {{contacto.apellidos}}</ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="presentAlert(contacto)" >
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+ 
+</ion-content>
